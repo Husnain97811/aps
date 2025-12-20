@@ -1,0 +1,292 @@
+; Copyright (C) 2004-2015 Synaptics Incorporated. All rights reserved.
+; wbf_vfs_003f.inf - Install the Validity Fingerprint Sensor USB user-mode driver
+;
+
+[Version]
+Signature="$Windows NT$"
+Class=Biometric
+ClassGuid={53D29EF7-377C-4D14-864B-EB3A85769359}
+Provider=%VFSUMDF%
+DriverVer=05/27/2015,4.5.307.0
+CatalogFile=wbf_vfs_003f_adv.cat
+
+; ========== Manufacturer/Models sections ===========
+[Manufacturer]
+%VFSUMDF%=Validity,NTx86,NTamd64,NTx86.6.3,NTamd64.6.3
+
+[Validity.NTx86]
+%VfsUsbDeviceName003f%=Biometric_Install, USB\VID_138A&PID_003f
+
+[Validity.NTamd64]
+%VfsUsbDeviceName003f%=Biometric_Install, USB\VID_138A&PID_003f
+
+[Validity.NTx86.6.3]
+%VfsUsbDeviceName003f%=Biometric_Install_81,USB\VID_138A&PID_003f
+
+[Validity.NTamd64.6.3]
+%VfsUsbDeviceName003f%=Biometric_Install_81,USB\VID_138A&PID_003f
+
+; =================== Installation ===================
+; from Lofofest WLK test result, should remove it
+;[ClassInstall32]
+;AddReg=BiometricClass_RegistryAdd
+;
+;[BiometricClass_RegistryAdd]
+;HKR,,,,%ClassName%
+;HKR,,Icon,,"-201"
+;HKR,,IconPath,0x00010000,"%SYSTEMROOT%\system32\SysClass.dll,-201"
+
+; ================= Source Media Section =====================
+[SourceDisksNames]
+1 = %DISK_NAME%,,,\x86
+2 = %DISK_NAME%,,,\X64
+
+[SourceDisksFiles.x86]
+wbf_vfs_003f_adv.dll=1
+vcsAPIFORWBF.dll=1
+valWBFPolicyService.exe=1
+vcsWBFEngineAdapter.dll=1
+vcsWBFStorageAdapter.dll=1
+vcsWBFSensorAdapter.dll=1
+ValEFIResDll.dll=1
+msvcr120.dll=1
+fpCSEvtSvc.exe=1
+; TODO: redist binaries not available in M3.  Uncomment for final release
+;WudfUpdate_$UMDFCOINSTALLERVERSION$.dll=1
+
+[SourceDisksFiles.amd64]
+wbf_vfs_003f_adv.dll=2
+vcsAPIFORWBF.dll=2
+valWBFPolicyService.exe=2
+vcsWBFEngineAdapter.dll=2
+vcsWBFStorageAdapter.dll=2
+vcsWBFSensorAdapter.dll=2
+ValEFIResDll.dll=2
+msvcr120.dll=2
+fpCSEvtSvc.exe=2
+; TODO: redist binaries not available in M3.  Uncomment for final release
+;WudfUpdate_$UMDFCOINSTALLERVERSION$.dll=1
+
+; =================== UMDF wbvfs Device - WBDI IOCTL interface ==================================
+
+[Biometric_Install.NT]
+CopyFiles=UMDriverCopy
+CopyFiles=VCSAPIForWbfCopy
+CopyFiles=AdaptersCopy
+Include=WINUSB.INF                      ; Import sections from WINUSB.INF
+Needs=WINUSB.NT                         ; Run the CopyFiles & AddReg directives for WinUsb.INF
+FeatureScore=0xC0
+
+[Biometric_Install.NT.hw]
+AddReg=Biometric_Device_AddReg
+AddReg=DriverPlugInAddReg
+AddReg=USDKAddReg
+
+[Biometric_Install.NT.Services]
+AddService=WUDFRd,0x000001fa,WUDFRD_ServiceInstall  ; flag 0x2 sets this as the service for the device
+AddService=WinUsb,0x000001f8,WinUsb_ServiceInstall  ; this service is installed because its a filter.
+AddService=valWBFPolicyService,0x000009f8,WBFPolicy_ServiceInstall  ; Validity policy service for WBF.
+
+[Biometric_Install.NT.Wdf]
+KmdfService=WINUSB, WinUsb_Install
+UmdfDispatcher=WinUsb
+UmdfService=wbf_vfs_003f, wbf_vfs_Install
+UmdfServiceOrder=wbf_vfs_003f
+
+[Biometric_Install.NT.CoInstallers]
+AddReg=CoInstallers_AddReg
+CopyFiles=CoInstallers_CopyFiles
+
+
+[Biometric_Install_81.NT]
+CopyFiles=UMDriverCopy
+CopyFiles=VCSAPIForWbfCopy
+CopyFiles=AdaptersCopy
+CopyFiles=FpSvcCopy
+Include=WINUSB.INF                      ; Import sections from WINUSB.INF
+Needs=WINUSB.NT                         ; Run the CopyFiles & AddReg directives for WinUsb.INF
+FeatureScore=0xC0
+
+[Biometric_Install_81.NT.hw]
+AddReg=Biometric_Device_AddReg
+AddReg=DriverPlugInAddReg
+AddReg=USDKAddReg
+
+[Biometric_Install_81.NT.Services]
+AddService=WUDFRd,0x000001fa,WUDFRD_ServiceInstall                      ; flag 0x2 sets this as the service for the device
+AddService=WinUsb,0x000001f8,WinUsb_ServiceInstall                      ; this service is installed because its a filter.
+AddService=valWBFPolicyService,0x000009f8,WBFPolicy_ServiceInstall  ; Validity policy service for WBF.
+AddService=fpCsEvtSvc,0x000009f8,fpCsEvtSvc_ServiceInstall  ; Validity power management service for WBF.
+
+[Biometric_Install_81.NT.Wdf]
+KmdfService=WINUSB, WinUsb_Install
+UmdfDispatcher=WinUsb
+UmdfService=wbf_vfs_003f, wbf_vfs_Install
+UmdfServiceOrder=wbf_vfs_003f
+
+[Biometric_Install_81.NT.CoInstallers]
+AddReg=CoInstallers_AddReg
+CopyFiles=CoInstallers_CopyFiles
+
+[WinUsb_Install]
+KmdfLibraryVersion = 1.9
+
+[wbf_vfs_Install]
+UmdfLibraryVersion=1.9.0
+DriverCLSID = "{AE99B43C-06A7-4edc-9980-A648BAAB6285}"  ; must unique for this driver
+ServiceBinary = %12%\UMDF\wbf_vfs_003f_adv.dll
+
+[Biometric_Device_AddReg]
+HKR,,"DeviceCharacteristics",0x10001,0x0100     ; Use same security checks on relative opens
+HKR,,"Security",,"D:P(A;;GA;;;BA)(A;;GA;;;SY)"  ; Allow generic-all access to Built-in administrators and Local system
+HKR,,"LowerFilters",0x00010008,"WinUsb" ; FLG_ADDREG_TYPE_MULTI_SZ | FLG_ADDREG_APPEND
+HKR,,"Exclusive",0x10001,1
+HKR,,"SystemWakeEnabled",0x00010001,0
+HKR,,"DeviceIdleEnabled",0x00010001,1
+HKR,,"UserSetDeviceIdleEnabled",0x00010001,1
+HKR,,"DefaultIdleState",0x00010001,1
+HKR,,"DefaultIdleTimeout",0x00010001,5000
+HKR,"WUDF",HostTimeoutSeconds,0x00010001,0xff
+
+[DriverPlugInAddReg]
+HKR,WinBio\Configurations,DefaultConfiguration,,"0"
+
+HKR,WinBio\Configurations\0,SensorMode,0x10001,1                                ; Basic - 1, Advanced - 2
+HKR,WinBio\Configurations\0,SystemSensor,0x10001,1                              ; UAC/Winlogon - 1
+HKR,WinBio\Configurations\0,SensorAdapterBinary,,"WinBioSensorAdapter.DLL"      ; Windows built-in WBDI sensor adapter.
+HKR,WinBio\Configurations\0,EngineAdapterBinary,,"vcsWBFEngineAdapter.DLL"      ; Vendor engine
+HKR,WinBio\Configurations\0,StorageAdapterBinary,,"WinBioStorageAdapter.DLL"    ; Windows built-in storage adapter.
+HKR,WinBio\Configurations\0,DatabaseId,,"1000F3B5-9412-490e-97BA-4AA5A1A171AE"  ; must have Validity specific GUID for DB
+
+HKR,WinBio\Configurations\1,SensorMode,0x10001,2                                ; Basic - 1, Advanced - 2
+HKR,WinBio\Configurations\1,SystemSensor,0x10001,1                              ; UAC/Winlogon - 1
+HKR,WinBio\Configurations\1,SensorAdapterBinary,,"vcsWBFSensorAdapter.DLL"      ; Windows built-in WBDI sensor adapter.
+HKR,WinBio\Configurations\1,EngineAdapterBinary,,"vcsWBFEngineAdapter.DLL"      ; Vendor engine
+HKR,WinBio\Configurations\1,StorageAdapterBinary,,"vcsWBFStorageAdapter.DLL"    ; Vendor Storage
+HKR,WinBio\Configurations\1,DatabaseId,,"6F970689-2E93-4fac-AA6E-F2CE6C9EB47C"  ; Validity specific GUID for DB used in Advanced mode
+
+HKR,WinBio\Configurations\2,SensorMode,0x10001,2                                ; Basic - 1, Advanced - 2
+HKR,WinBio\Configurations\2,SystemSensor,0x10001,0                              ; Private
+HKR,WinBio\Configurations\2,SensorAdapterBinary,,"vcsWBFSensorAdapter.DLL"      ; Windows built-in WBDI sensor adapter.
+HKR,WinBio\Configurations\2,EngineAdapterBinary,,"vcsWBFEngineAdapter.DLL"      ; Vendor engine
+HKR,WinBio\Configurations\2,StorageAdapterBinary,,"vcsWBFStorageAdapter.DLL"    ; Vendor Storage
+HKR,WinBio\Configurations\2,DatabaseId,,"AE144BEE-3F99-4711-B16C-E0883A3D2F6C"  ; Validity specific GUID for DB used in Advanced mode
+
+[DatabaseAddReg]
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{1000F3B5-9412-490e-97BA-4AA5A1A171AE},BiometricType,0x00010001,0x00000008
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{1000F3B5-9412-490e-97BA-4AA5A1A171AE},Attributes,0x00010001,0x00000001
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{1000F3B5-9412-490e-97BA-4AA5A1A171AE},Format,,"00000000-0000-0000-0000-000000000000"
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{1000F3B5-9412-490e-97BA-4AA5A1A171AE},InitialSize,0x00010001,0x00000020
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{1000F3B5-9412-490e-97BA-4AA5A1A171AE},AutoCreate,0x00010001,0x00000001
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{1000F3B5-9412-490e-97BA-4AA5A1A171AE},AutoName,0x00010001,0x00000001
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{1000F3B5-9412-490e-97BA-4AA5A1A171AE},FilePath,,""
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{1000F3B5-9412-490e-97BA-4AA5A1A171AE},ConnectionString,,""
+
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{6F970689-2E93-4fac-AA6E-F2CE6C9EB47C},BiometricType,0x00010001,0x00000008
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{6F970689-2E93-4fac-AA6E-F2CE6C9EB47C},Attributes,0x00010001,0x00010003
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{6F970689-2E93-4fac-AA6E-F2CE6C9EB47C},Format,,"00000000-0000-0000-0000-000000000000"
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{6F970689-2E93-4fac-AA6E-F2CE6C9EB47C},InitialSize,0x00010001,0x00000020
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{6F970689-2E93-4fac-AA6E-F2CE6C9EB47C},AutoCreate,0x00010001,0x00000001
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{6F970689-2E93-4fac-AA6E-F2CE6C9EB47C},AutoName,0x00010001,0x00000001
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{6F970689-2E93-4fac-AA6E-F2CE6C9EB47C},FilePath,,""
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{6F970689-2E93-4fac-AA6E-F2CE6C9EB47C},ConnectionString,,""
+
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{AE144BEE-3F99-4711-B16C-E0883A3D2F6C},BiometricType,0x00010001,0x00000008
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{AE144BEE-3F99-4711-B16C-E0883A3D2F6C},Attributes,0x00010001,0x00010003
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{AE144BEE-3F99-4711-B16C-E0883A3D2F6C},Format,,"00000000-0000-0000-0000-000000000000"
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{AE144BEE-3F99-4711-B16C-E0883A3D2F6C},InitialSize,0x00010001,0x00000020
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{AE144BEE-3F99-4711-B16C-E0883A3D2F6C},AutoCreate,0x00010001,0x00000001
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{AE144BEE-3F99-4711-B16C-E0883A3D2F6C},AutoName,0x00010001,0x00000001
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{AE144BEE-3F99-4711-B16C-E0883A3D2F6C},FilePath,,""
+HKLM, System\CurrentControlSet\Services\WbioSrvc\Databases\{AE144BEE-3F99-4711-B16C-E0883A3D2F6C},ConnectionString,,""
+
+[USDKAddReg]
+HKLM, "SOFTWARE\Validity"
+HKLM,"SOFTWARE\Validity\WBF"
+HKLM, "SOFTWARE\Validity\WBF\",useHubRecoveryLogic,0x00000001,0x00000001
+HKLM, "SOFTWARE\Validity\WBF\",VendorFMA,0x00000001,0x00000001
+HKLM, "SOFTWARE\Validity\WBF\",EnrolledUserCount,0x00000001,0x00000000
+HKLM, "SOFTWARE\Validity\WBF\LED\",ControlMethod,0x00000001,0x00000010
+
+[USDKAddReg.Security]
+"D: (A;CIOI;GA;;;LS)"
+
+[WUDFRD_ServiceInstall]
+DisplayName = %WudfRdDisplayName%
+ServiceType = 1
+StartType = 3
+ErrorControl = 1
+ServiceBinary = %12%\WUDFRd.sys
+LoadOrderGroup = Base
+AddReg=DatabaseAddReg
+
+[WinUsb_ServiceInstall]
+DisplayName     = %WinUsb_SvcDesc%
+ServiceType     = 1
+StartType       = 3
+ErrorControl    = 1
+ServiceBinary   = %12%\WinUSB.sys
+
+[WBFPolicy_ServiceInstall]
+DisplayName     = %WBFService_SvcDesc%
+Description     = %WBFService_SvcDesc%
+ServiceType     = 0x00000010                  ; SERVICE_WIN32_OWN_PROCESS
+StartType       = 0x2                         ; SERVICE_AUTO_START
+ErrorControl    = 0x0                         ; SERVICE_ERROR_IGNORE
+ServiceBinary   = %11%\valWBFPolicyService.exe
+
+[fpCsEvtSvc_ServiceInstall]
+DisplayName     = %fpCSEvtService_SvcDesc%
+Description     = %fpCSEvtService_SvcDesc%
+ServiceType     = 0x00000010                  ; SERVICE_WIN32_OWN_PROCESS
+StartType       = 0x2                         ; SERVICE_AUTO_START
+ErrorControl    = 0x0                         ; SERVICE_ERROR_IGNORE
+ServiceBinary   = %11%\fpCSEvtSvc.exe
+
+[CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"WudfCoinstaller.dll"
+; TODO: redist binaries not available in M3.  Uncomment for final release
+;HKR,,CoInstallers32,0x00010000,"WudfUpdate_$UMDFCOINSTALLERVERSION$.dll"
+;HKR,,CoInstallers32,0x00010000,"WudfCoinstaller.dll"
+
+[CoInstallers_CopyFiles]
+; TODO: redist binaries not available in M3.  Uncomment for final release
+;WudfUpdate_$UMDFCOINSTALLERVERSION$.dll
+
+[DestinationDirs]
+UMDriverCopy=12,UMDF ; copy to driversMdf
+; TODO: redist binaries not available in M3.  Uncomment for final release
+;CoInstallers_CopyFiles=11
+VCSAPIForWbfCopy=11
+AdaptersCopy=11,WinBioPlugIns
+FpSvcCopy=11
+
+[UMDriverCopy]
+wbf_vfs_003f_adv.dll
+
+[VCSAPIForWbfCopy]
+vcsAPIFORWBF.dll
+valWBFPolicyService.exe
+ValEFIResDll.dll
+
+[AdaptersCopy]
+vcsWBFEngineAdapter.dll
+vcsWBFStorageAdapter.dll
+vcsWBFSensorAdapter.dll
+
+[FpSvcCopy]
+msvcr120.dll
+fpCSEvtSvc.exe
+
+; =================== Generic ==================================
+
+[Strings]
+VFSUMDF="Synaptics FP Sensors"
+MediaDescription="Synaptics FP Sensor Driver Installation Media"
+ClassName="Biometric Devices"
+WudfRdDisplayName="Windows Driver Foundation - User-mode Driver Framework Reflector"
+VfsUsbDeviceName003f="Synaptics FP Sensors (WBF) (PID=003f)" 
+WinUsb_SvcDesc="WinUSB Driver"
+WBFService_SvcDesc="Synaptics FP WBF Policy Service"
+fpCSEvtService_SvcDesc="fpCSEvtSvc"
+DISK_NAME="Synaptics FP WinBio Driver Install Disk"

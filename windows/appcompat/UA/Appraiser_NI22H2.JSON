@@ -1,0 +1,37 @@
+{
+    "JsonSuccessfullyWritten" : true,
+    "JsonVersion" : 4,
+    "JsonCreationTime" : "133621412505319286",
+    "CompatSectionCount" : 1,
+    "CompatSections" : 
+    [
+        {
+            "SectionMsg" : 
+            {
+                "MsgId" : 6,
+                "MsgDescription" : "DEBUG: All, Prevents you from upgrading"
+            },
+            "Assets" : 
+            [
+                {
+                    "AssetImgPath" : "C:\\Windows\\appcompat\\UA\\GenericError.png",
+                    "Translatable" : true,
+                    "AssetMajorResourceMsgId" : 
+                    {
+                        "MsgId" : 127,
+                        "MsgDescription" : "DEBUG: CPU Family or Model issue"
+                    }
+                },
+                {
+                    "AssetImgPath" : "C:\\Windows\\appcompat\\UA\\GenericError.png",
+                    "Translatable" : true,
+                    "AssetMajorResourceMsgId" : 
+                    {
+                        "MsgId" : 124,
+                        "MsgDescription" : "DEBUG: TPM Version issue"
+                    }
+                }
+            ]
+        }
+    ]
+}

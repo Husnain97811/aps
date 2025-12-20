@@ -1,0 +1,142 @@
+# Flutter/Dart
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+.fvm/
+.flutter-plugins
+.flutter-plugins-dependencies
+.flutter/
+.gradle/
+.idea/
+.vscode/
+
+# Android
+android/**/gradle-wrapper.jar
+android/.gradle/
+android/local.properties
+android/**/GeneratedPluginRegistrant.java
+android/key.properties
+android/app/build/
+android/build/
+
+# iOS
+ios/Flutter/Flutter.podspec
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/App.framework
+ios/Podfile.lock
+ios/Runner.xcworkspace/**
+ios/Pods/
+ios/Runner.xcodeproj/project.xcworkspace/xcuserdata/
+ios/Runner.xcodeproj/xcuserdata/
+ios/Runner/GeneratedPluginRegistrant.h
+ios/Runner/GeneratedPluginRegistrant.m
+ios/build/
+
+# Windows
+windows/flutter/generated_plugin_registrant.cc
+windows/flutter/generated_plugin_registrant.h
+windows/flutter/generated_plugins.cmake
+windows/build/
+
+# Linux
+linux/flutter/generated_plugin_registrant.cc
+linux/flutter/generated_plugin_registrant.h
+linux/flutter/generated_plugins.cmake
+linux/build/
+
+# MacOS
+macos/Flutter/GeneratedPluginRegistrant.swift
+macos/Flutter/ephemeral/
+macos/build/
+
+# Web
+.web/
+
+# Environment variables
+.env
+.env.*
+
+# IDE
+*.iml
+*.swp
+*.swo
+*.log
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Package files
+pubspec.lock
+
+# VS Code
+.vscode/
+
+# Large files to ignore
+*.exe
+*.dll
+*.pdb
+*.msix
+*.app
+*.apk
+*.ipa
+*.zip
+*.rar
+*.tar.gz
+
+# Temporary files
+*.tmp
+*.temp
+
+# Flutter generated files
+*.dart.js
+*.js.map
+*.js
+*.part.js
+*.dart.snapshot
+
+# Directory-based project format
+.idea/
+# if you remove the above rule, at least ignore the following:
+# User-specific stuff
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+
+# Generated files
+.idea/**/contentModel.xml
+
+# Sensitive or high-churn files
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+
+# Gradle
+.idea/**/gradle.xml
+.idea/**/libraries
+
+# File-based project format
+*.iws
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs
+logs/
+*.log

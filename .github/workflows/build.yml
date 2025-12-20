@@ -1,0 +1,55 @@
+name: Manual Windows Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version number (e.g., 3.0.0)'
+        required: true
+        default: '3.0.0'
+      build_type:
+        description: 'Build type'
+        required: true
+        default: 'release'
+        type: choice
+        options:
+          - release
+          - debug
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+    
+    - name: Install dependencies
+      run: |
+        flutter pub get
+        flutter doctor
+    
+    - name: Build Executable
+      run: |
+        flutter clean
+        echo "Building version: ${{ github.event.inputs.version }}"
+        
+        if [ "${{ github.event.inputs.build_type }}" = "release" ]; then
+          flutter build windows --release
+        else
+          flutter build windows --debug
+        fi
+        
+        # Copy to root for easy download
+        Copy-Item "build\windows\runner\Release\aps.exe" "APS_App.exe"
+    
+    - name: Upload Executable
+      uses: actions/upload-artifact@v3
+      with:
+        name: APS-App-${{ github.event.inputs.version }}-${{ github.event.inputs.build_type }}
+        path: |
+          APS_App.exe
+          build/windows/runner/Release/

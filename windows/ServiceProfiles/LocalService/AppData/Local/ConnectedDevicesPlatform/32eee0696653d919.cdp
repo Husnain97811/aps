@@ -1,0 +1,119 @@
+﻿{
+   "AfcDatabaseSettings" : {
+      "DatabaseInstanceId" : 0,
+      "LastUpdated" : "2023-11-18T14:05:28.061"
+   },
+   "AfsActivityTypes" : [],
+   "AfsChannelUri" : "",
+   "AfsEnvironment" : "",
+   "AfsSubscriptionId" : "",
+   "AfsSubscriptionUpdateTime" : "0000-00-00T00:00:00.000",
+   "BaseRegisteredInfoHash" : "ufAElfYaEHSi+XxTFwHjRPQdALXR2hdPRUdTFvUyxXw=",
+   "CNCNotificationUri" : "",
+   "CNCNotificationUriExpirationTime" : "0000-00-00T00:00:00.000",
+   "CNCNotificationUriLastSynced" : "0000-00-00T00:00:00.000",
+   "DdsRegistrationExpiryTickCount" : 17202635101640560,
+   "Devices" : [
+      {
+         "ApplicationDisplayName" : "",
+         "ApplicationId" : "",
+         "Applications" : [
+            {
+               "InstanceId" : "Perception",
+               "Resources" : [
+                  {
+                     "Id" : "SpatialEntity",
+                     "Types" : [ "com.msft.perception.spatialentity" ]
+                  }
+               ],
+               "Type" : "com.msft.perception"
+            },
+            {
+               "InstanceId" : "CCS",
+               "Resources" : [
+                  {
+                     "Id" : "FastPath",
+                     "Types" : [ "com.msft.ccs.fastpath" ]
+                  }
+               ],
+               "Type" : "com.msft.ccs"
+            },
+            {
+               "InstanceId" : "Mobility",
+               "Resources" : [
+                  {
+                     "Id" : "ContinueTask",
+                     "Types" : [ "com.microsoft.r.cdp.attribute" ]
+                  }
+               ],
+               "Type" : "com.msft.mmx"
+            },
+            {
+               "InstanceId" : "CDP",
+               "Resources" : [
+                  {
+                     "Id" : "AppService",
+                     "Types" : [ "com.msft.cdp.appservice" ]
+                  },
+                  {
+                     "Id" : "LaunchUri",
+                     "Types" : [ "com.msft.cdp.launchuri" ]
+                  },
+                  {
+                     "Id" : "NearShare",
+                     "Types" : [ "com.msft.cdp.nearshare" ]
+                  },
+                  {
+                     "Id" : "RemoteSession",
+                     "Types" : [ "com.msft.cdp.remotesession" ]
+                  },
+                  {
+                     "Id" : "LargeMessageTransfer",
+                     "Types" : [ "com.msft.cdp.largemessagetransfer" ]
+                  },
+                  {
+                     "Id" : "StatelessMessage",
+                     "Types" : [ "com.msft.cdp.statelessmessage" ]
+                  }
+               ],
+               "Type" : "com.msft.cdp"
+            }
+         ],
+         "BluetoothClassicMacAddress" : "",
+         "CcsTicket" : ".eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InlzLUdEUllQM2R0ZWNLUW9raldnOWRBc2VGYyJ9.eyJhdWQiOiJodHRwOi8vZGRzIiwiaXNzIjoiQ049and0c2lnbmluZy0yLmRkcy5taWNyb3NvZnQuY29tIiwibmJmIjoxNzE3NzU3OTExLCJleHAiOjE3MjAzNDk5MTEsInNwc2kiOiJjREM0U3A1bHBRZ1Uva1Y2NitZckdoMGRGMWpFSWtrU1ZwYkVObUh3RUNrPSIsInNjIjoiaHR0cHM6Ly93bnMyLXBuMXAubm90aWZ5LndpbmRvd3MuY29tLz90b2tlbj1Bd1lBQUFEcDI2cmVrSklibEt5SGpvekZLQzh1enZUazA0QUFhc2lseGJHMG9wQ1clMmYzMlBYRkhRZGd4WXlWUjdVd1NGb2RSaSUyZnFnVjJqV3cyJTJiSkRUWkVzTVhHeHBQTFJCUTc3TXFScWNMZU5qQTI4aG5veENneVFWMXZhdUx6d2NHUk1Xd0R1V0NYU1NQaGFFMTlTTFZDS2FkRmEiLCJzcnQiOiJ6SFFsVXBMcldaNUIwQVB0ZzdLc0wwcXJWTmtCN3V4a2Y3MlNHSHNQTlBrPSIsImRhIjoiW3tcImlcIjpcIlBlcmNlcHRpb25cIixcInRcIjpbXCJjb20ubXNmdC5wZXJjZXB0aW9uXCJdLFwiclwiOlt7XCJpXCI6XCJTcGF0aWFsRW50aXR5XCIsXCJwXCI6Mn1dfSx7XCJpXCI6XCJDQ1NcIixcInRcIjpbXCJjb20ubXNmdC5jY3NcIl0sXCJyXCI6W3tcImlcIjpcIkZhc3RQYXRoXCIsXCJwXCI6Mn1dfSx7XCJpXCI6XCJNb2JpbGl0eVwiLFwidFwiOltcImNvbS5tc2Z0Lm1teFwiXSxcInJcIjpbe1wiaVwiOlwiQ29udGludWVUYXNrXCIsXCJwXCI6Mn1dfSx7XCJpXCI6XCJDRFBcIixcInRcIjpbXCJjb20ubXNmdC5jZHBcIl0sXCJyXCI6W3tcImlcIjpcIkFwcFNlcnZpY2VcIixcInBcIjoyfSx7XCJpXCI6XCJMYXVuY2hVcmlcIixcInBcIjoyfSx7XCJpXCI6XCJOZWFyU2hhcmVcIixcInBcIjoyfSx7XCJpXCI6XCJSZW1vdGVTZXNzaW9uXCIsXCJwXCI6Mn0se1wiaVwiOlwiTGFyZ2VNZXNzYWdlVHJhbnNmZXJcIixcInBcIjoyfSx7XCJpXCI6XCJTdGF0ZWxlc3NNZXNzYWdlXCIsXCJwXCI6Mn1dfV0iLCJ0cGRpIjoiM0xkbndnbEpEWE1qUTV0NzV3ai96SkdxeVRrSkxGMS8wKzRiNUhWUVdobz0iLCJ0Y3NwZGkiOiJiODJmYmNlOC1hMjk3LTU5NDktYTliNi00Y2UyNjdkMzA1NjgiLCJpdiI6IkdxSllSeEhHdzVOeUtsZU1DbVZSVmc9PSIsInRjIjoiaHR0cHM6Ly93bnMyLXBuMXAubm90aWZ5LndpbmRvd3MuY29tLz90b2tlbj1Bd1lBQUFEcDI2cmVrSklibEt5SGpvekZLQzh1enZUazA0QUFhc2lseGJHMG9wQ1clMmYzMlBYRkhRZGd4WXlWUjdVd1NGb2RSaSUyZnFnVjJqV3cyJTJiSkRUWkVzTVhHeHBQTFJCUTc3TXFScWNMZU5qQTI4aG5veENneVFWMXZhdUx6d2NHUk1Xd0R1V0NYU1NQaGFFMTlTTFZDS2FkRmEiLCJ0cnQiOiJ6SFFsVXBMcldaNUIwQVB0ZzdLc0wwcXJWTmtCN3V4a2Y3MlNHSHNQTlBrPSIsInRyZHQiOiJENWZkL3ZXS1BDaVY2OUcxRFU1SVNMaEUxaGlXem9oU2UrMHZpTStqWEpZPSJ9.MmXLQG6m5rqb8SLi1LWnlojZdYSC-FfIJG7qAeqUg4MCPcoBLPxtDCxs-erH_MTV_cD8Rzf_rxDMbLJZ6HHisOzAG98zkbrZrNPUSbBIqf5I32Qb-OMBVKMKMTzldX9PdACimG8Y34y-TU3MMnlQBhXFQ2XCyjPEAwUhc0zE2qhDgo5TLW9ay6H_5jOVpjkA56RDxm290ctc__9UMHuqnK6w_UvarULD5BCBs4ub6jQ24gLDuVyPfGzwwN2uROSLRS--dA3EF5PKiRSILk2ijMROLC6Gp1PLPRwvtQyLIWfI_706bgKxoPXBnBY2dWt6sszA1d9ih9m72VSLGDVOZw",
+         "CcsTicketExpiration" : "2024-07-07T10:58:31.661Z",
+         "DeduplicationHint" : "",
+         "DeviceDdsClientId" : "b82fbce8-a297-5949-a9b6-4ce267d30568",
+         "DeviceThumbprint" : "D5fd/vWKPCiV69G1DU5ISLhE1hiWzohSe+0viM+jXJY=",
+         "IpV4Address" : "192.168.18.126",
+         "ManufacturerName" : "Hewlett-Packard",
+         "ModelName" : "HP ProBook 640 G1",
+         "ShortOSVersion" : "10.0.19045.3636",
+         "UserDeviceThumbprint" : "zHQlUpLrWZ5B0APtg7KsL0qrVNkB7uxkf72SGHsPNPk=",
+         "connectionModes" : 4,
+         "deviceId" : "D5fd/vWKPCiV69G1DU5ISLhE1hiWzohSe+0viM+jXJY=",
+         "endpoints" : [
+            {
+               "endpointType" : 3,
+               "host" : "zHQlUpLrWZ5B0APtg7KsL0qrVNkB7uxkf72SGHsPNPk=",
+               "service" : ""
+            }
+         ],
+         "extendedDeviceStatus" : 0,
+         "isMyDevice" : true,
+         "name" : "DESKTOP-EM6BMB7",
+         "status" : 2,
+         "type" : 15
+      }
+   ],
+   "FormatVersion" : 12,
+   "LastRegisteredNotificationUri" : "https://wns2-pn1p.notify.windows.com/?token=AwYAAADp26rekJIblKyHjozFKC8uzvTk04AAasilxbG0opCW%2f32PXFHQdgxYyVR7UwSFodRi%2fqgV2jWw2%2bJDTZEsMXGxpPLRBQ77MqRqcLeNjA28hnoxCgyQV1vauLzwcGRMWwDuWCXSSPhaE19SLVCKadFa",
+   "LastRegisteredNotificationUriExpirationTime" : "2024-07-05T16:40:03.000Z",
+   "LastSyncedTime" : "2024-06-07T10:58:30.705Z",
+   "LogicalDeviceId" : "",
+   "NeedsToRevokeChannel" : false,
+   "NextDataEncryptionKeyRolloverTime" : "0000-00-00T00:00:00.000",
+   "RegisteredInfoHash" : "F2WdTStwY0ZDi9OKUNAFWz61JEFSExwDW0py3sKyC7w=",
+   "RegisteredWithStrongAuth" : false,
+   "StableUserId" : "32eee0696653d919"
+}

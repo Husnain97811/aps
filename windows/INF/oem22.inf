@@ -1,0 +1,716 @@
+; HPM1130_1210nf.INF  -- Windows Setup File for the M1210nf MFP (Windows NT5 Series)
+; Manufacturer:  Hewlett-Packard
+; Copyright (c) 2007 Hewlett-Packard
+
+[Version]
+Signature="$Windows NT$"
+Class=Image
+ClassGUID={6bdd1fc6-810f-11d0-bec7-08002be2092f}
+Provider=%Msft%
+DriverVer=03/31/2010,1.0.1.19178
+CatalogFile.NTx86=hptsfs32.cat
+CatalogFile.NTamd64=hptsfs64.cat
+
+[DestinationDirs]
+; By default, files will be copied to \windows\system32.
+DefaultDestDir              = 11
+M1210nf_TWAIN.CopyFiles       = 10,"twain_32\hpm1210nf"
+M1210nf_TWAIN_amd64.CopyFiles = 10,"twain_32\hpm1210nf"
+M1130_TWAIN.CopyFiles       = 10,"twain_32\hpm1130"
+M1130_TWAIN_amd64.CopyFiles = 10,"twain_32\hpm1130"
+TWAIN64_Support.CopyFiles   = 10,SysWow64
+
+
+[Manufacturer]
+%Mfg%=Models, NTx86, NTamd64
+
+[Models]
+%M1210nf.DeviceDesc%=M1210nfInstall,USB\VID_03F0&PID_0E2A&MI_02
+%M1210nf.DeviceDesc%=M1210nfInstall,USB\VID_03F0&PID_052A&MI_02
+%M1130.DeviceDesc%=M1130Install,USB\VID_03F0&PID_042A&MI_02
+
+[Models.NTx86]
+%M1210nf.DeviceDesc%=M1210nfInstall_XP,USB\VID_03F0&PID_0E2A&MI_02
+%M1210nf.DeviceDesc%=M1210nfInstall_XP,USB\VID_03F0&PID_052A&MI_02
+%M1130.DeviceDesc%=M1130Install_XP,USB\VID_03F0&PID_042A&MI_02
+
+[Models.NTamd64]
+%M1210nf.DeviceDesc%=M1210nfInstall_amd64,USB\VID_03F0&PID_0E2A&MI_02
+%M1210nf.DeviceDesc%=M1210nfInstall_amd64,USB\VID_03F0&PID_052A&MI_02
+%M1130.DeviceDesc%=M1130Install_amd64,USB\VID_03F0&PID_042A&MI_02
+
+
+;-----------------------------------M1210nf Intall-----------------------------------
+[M1210nfInstall.NT]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=1
+Capabilities=0x31
+Events=M1210nf.Events
+DeviceData=M1210nf_STI.DeviceData
+AddReg=M1210nf_STI.AddReg
+CopyFiles=M1210nf_TWAIN.CopyFiles, TWAIN32_Support.CopyFiles
+ICMProfiles="sRGB Color Space Profile.icm"
+; PortSelect="no"
+
+[M1210nfInstall_XP]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=1
+Capabilities=0x31
+Events=M1210nf.Events
+DeviceData=M1210nf_WIA.DeviceData
+AddReg=M1210nf_WIA.AddReg
+CopyFiles=M1210nf_WIA.CopyFiles, M1210nf_TWAIN.CopyFiles, TWAIN32_Support.CopyFiles
+ICMProfiles="sRGB Color Space Profile.icm"
+; PortSelect="no"
+
+
+[M1210nfInstall_amd64]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=1
+Capabilities=0x31
+Events=M1210nf.Events
+DeviceData=M1210nf_WIA.DeviceData
+AddReg=M1210nf_WIA.AddReg
+CopyFiles=M1210nf_WIA_amd64.CopyFiles, M1210nf_TWAIN_amd64.CopyFiles, TWAIN64_Support.CopyFiles
+ICMProfiles="sRGB Color Space Profile.icm"
+; PortSelect="no"
+
+
+[M1210nf.Events]
+
+
+[M1210nfInstall.NT.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[M1210nfInstall_XP.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[M1210nfInstall_amd64.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+
+[M1210nf_STI.DeviceData]
+TwainDS="M1210nf TWAIN"
+InstallCLSID={9EE79F3E-707C-4280-8C22-00FEB9701E80}
+TulipCLSID={326B9D93-20DA-4FA0-A8E0-BDBC8D4F4D38}
+TulipDriver=mrvl2lpd.dll
+
+[M1210nf_WIA.DeviceData]
+Server=local
+ADF=Yes
+ScrollFeederOnly=Yes
+UI Class ID={4DB1AD10-3391-11D2-9A33-00C04FA36145}
+Resolutions="75, 100, 150, 200, 300, 600, 1200"
+TwainDS="M1210nf TWAIN"
+
+[M1210nf_STI.AddReg]
+HKR,,HardwareConfig,1,4
+HKR,,CreateFileName,,AUTO       ; Added
+HKR,,DevLoader,,*NTKERN         ; Added
+HKR,,NTMPDriver,,"usbscan.sys"  ; Added
+HKR,,USDClass,,"{BB6CF8E2-1511-40bd-91BA-80D43C53064E}" ; Added
+;HKR,DeviceData,TulipIOType,0x10001,1
+
+[M1210nf_WIA.AddReg]
+HKR,,HardwareConfig,1,1
+HKR,,USDClass,,"{2AA83D38-D997-4268-A168-789133D843E5}"
+HKCR,CLSID\{2AA83D38-D997-4268-A168-789133D843E5},,,"HP1210nf WIA USB Minidriver"
+HKCR,CLSID\{2AA83D38-D997-4268-A168-789133D843E5}\InProcServer32,,,%11%\m1210wia.dll
+HKCR,CLSID\{2AA83D38-D997-4268-A168-789133D843E5}\InProcServer32,ThreadingModel,,Both
+
+
+[M1210nf_WIA.CopyFiles]
+m1210wia.dll
+
+[M1210nf_TWAIN.CopyFiles]
+m1210.ds
+
+[M1210nf_WIA_amd64.CopyFiles]
+m1210wia.dll
+
+[M1210nf_TWAIN_amd64.CopyFiles]
+m1210.ds
+
+
+;---------------------------------------M1130 Install-------------------------------------
+[M1130Install.NT]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=1
+Capabilities=0x31
+Events=M1130.Events
+DeviceData=M1130_STI.DeviceData
+AddReg=M1130_STI.AddReg
+CopyFiles=M1130_TWAIN.CopyFiles, TWAIN32_Support.CopyFiles
+ICMProfiles="sRGB Color Space Profile.icm"
+; PortSelect="no"
+
+[M1130Install_XP]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=1
+Capabilities=0x31
+Events=M1130.Events
+DeviceData=M1130_WIA.DeviceData
+AddReg=M1130_WIA.AddReg
+CopyFiles=M1130_WIA.CopyFiles, M1130_TWAIN.CopyFiles, TWAIN32_Support.CopyFiles
+ICMProfiles="sRGB Color Space Profile.icm"
+; PortSelect="no"
+
+
+[M1130Install_amd64]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=1
+Capabilities=0x31
+Events=M1130.Events
+DeviceData=M1130_WIA.DeviceData
+AddReg=M1130_WIA.AddReg
+CopyFiles=M1130_WIA_amd64.CopyFiles, M1130_TWAIN_amd64.CopyFiles, TWAIN64_Support.CopyFiles
+ICMProfiles="sRGB Color Space Profile.icm"
+; PortSelect="no"
+
+
+[M1130.Events]
+
+
+[M1130Install.NT.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[M1130Install_XP.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[M1130Install_amd64.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+
+[M1130_STI.DeviceData]
+TwainDS="M1130 TWAIN"
+InstallCLSID={9EE79F3E-707C-4280-8C22-00FEB9701E80}
+TulipCLSID={326B9D93-20DA-4FA0-A8E0-BDBC8D4F4D38}
+TulipDriver=mrvl2lpd.dll
+
+[M1130_WIA.DeviceData]
+Server=local
+ADF=No
+ScrollFeederOnly=No
+UI Class ID={4DB1AD10-3391-11D2-9A33-00C04FA36145}
+Resolutions="75, 100, 150, 200, 300, 600, 1200"
+
+[M1130_STI.AddReg]
+HKR,,HardwareConfig,1,4
+HKR,,CreateFileName,,AUTO       ; Added
+HKR,,DevLoader,,*NTKERN         ; Added
+HKR,,NTMPDriver,,"usbscan.sys"  ; Added
+HKR,,USDClass,,"{BB6CF8E2-1511-40bd-91BA-80D43C53064E}" ; Added
+HKR,DeviceData,TulipIOType,0x10001,1
+
+[M1130_WIA.AddReg]
+HKR,,HardwareConfig,1,1
+HKR,,USDClass,,"{8DECDFE3-14CA-4f4d-9C76-E749EC8A88EF}"
+HKCR,CLSID\{8DECDFE3-14CA-4f4d-9C76-E749EC8A88EF},,,"HP1130 WIA USB Minidriver"
+HKCR,CLSID\{8DECDFE3-14CA-4f4d-9C76-E749EC8A88EF}\InProcServer32,,,%11%\m1130wia.dll
+HKCR,CLSID\{8DECDFE3-14CA-4f4d-9C76-E749EC8A88EF}\InProcServer32,ThreadingModel,,Both
+
+
+[M1130_WIA.CopyFiles]
+m1130wia.dll
+
+[M1130_TWAIN.CopyFiles]
+m1130.ds
+
+[M1130_WIA_amd64.CopyFiles]
+m1130wia.dll
+
+[M1130_TWAIN_amd64.CopyFiles]
+m1130.ds
+
+;--------------------------------Copy Common Fifles-----------------------------
+
+[TWAIN32_Support.CopyFiles]
+Lfbmp15u.dll
+Lfcmp15u.dll
+Lffax15u.dll
+Lftif15u.dll
+ltclr15u.dll
+LTCON15u.dll
+ltcry15u.dll
+LTDIS15u.dll
+Ltdlgfile15u.dll
+Ltdlgkrn15u.dll
+ltefx15u.dll
+ltfil15u.dll
+ltimgclr15u.dll
+ltimgcor15u.dll
+ltimgefx15u.dll
+ltimgopt15u.dll
+ltimgsfx15u.dll
+Ltimgutl15u.dll
+ltkrn15u.dll
+ltpdg15u.dll
+ltpnt15u.dll
+Lttwn15u.dll
+Ltwvc15u.dll
+
+
+
+[TWAIN64_Support.CopyFiles]
+Lfbmp15u.dll
+Lfcmp15u.dll
+Lffax15u.dll
+Lftif15u.dll
+ltclr15u.dll
+LTCON15u.dll
+ltcry15u.dll
+LTDIS15u.dll
+Ltdlgfile15u.dll
+Ltdlgkrn15u.dll
+ltefx15u.dll
+ltfil15u.dll
+ltimgclr15u.dll
+ltimgcor15u.dll
+ltimgefx15u.dll
+ltimgopt15u.dll
+ltimgsfx15u.dll
+Ltimgutl15u.dll
+ltkrn15u.dll
+ltpdg15u.dll
+ltpnt15u.dll
+Lttwn15u.dll
+Ltwvc15u.dll
+
+
+
+[SourceDisksNames.x86]
+1=%Location%,,,%LANGDIR%\ScanDriver
+2=%Location%,support.cab,,
+3=%Location%,,,x32
+
+
+[SourceDisksNames.amd64]
+1=%Location%,,,%LANGDIR%\ScanDriver
+;Using 32bit twain DS on 64bits OS since 64bits DSM is not ready.
+2=%Location%,support.cab,,
+3=%Location%,,,x64
+
+[SourceDisksFiles.x86]
+m1210wia.dll    = 3
+m1130wia.dll    = 3
+m1210.ds        = 1
+m1130.ds        = 1
+Lfbmp15u.dll	= 2
+Lfcmp15u.dll	= 2
+Lffax15u.dll	= 2
+Lftif15u.dll	= 2
+ltclr15u.dll	= 2
+LTCON15u.dll	= 2
+ltcry15u.dll	= 2
+LTDIS15u.dll	= 2
+Ltdlgfile15u.dll	= 2
+Ltdlgkrn15u.dll	= 2
+ltefx15u.dll	= 2
+ltfil15u.dll	= 2
+ltimgclr15u.dll	= 2
+ltimgcor15u.dll	= 2
+ltimgefx15u.dll	= 2
+ltimgopt15u.dll	= 2
+ltimgsfx15u.dll	= 2
+Ltimgutl15u.dll	= 2
+ltkrn15u.dll	= 2
+ltpdg15u.dll	= 2
+ltpnt15u.dll	= 2
+Lttwn15u.dll	= 2
+Ltwvc15u.dll	= 2
+
+
+[SourceDisksFiles.amd64]
+m1210wia.dll    = 3
+m1130wia.dll    = 3
+m1210.ds        = 1
+m1130.ds        = 1
+Lfbmp15u.dll	= 2
+Lfcmp15u.dll	= 2
+Lffax15u.dll	= 2
+Lftif15u.dll	= 2
+ltclr15u.dll	= 2
+LTCON15u.dll	= 2
+ltcry15u.dll	= 2
+LTDIS15u.dll	= 2
+Ltdlgfile15u.dll	= 2
+Ltdlgkrn15u.dll	= 2
+ltefx15u.dll	= 2
+ltfil15u.dll	= 2
+ltimgclr15u.dll	= 2
+ltimgcor15u.dll	= 2
+ltimgefx15u.dll	= 2
+ltimgopt15u.dll	= 2
+ltimgsfx15u.dll	= 2
+Ltimgutl15u.dll	= 2
+ltkrn15u.dll	= 2
+ltpdg15u.dll	= 2
+ltpnt15u.dll	= 2
+Lttwn15u.dll	= 2
+Ltwvc15u.dll	= 2
+
+
+[Strings]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "English"
+
+; Arabic
+[Strings.0001]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Arabic"
+
+; Bulgarian
+[Strings.0002]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Bulgarian"
+
+; Catalan
+[Strings.0003]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Catalan"
+
+; Chinese-Simplified
+[Strings.0804]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Simplified_Chinese"
+
+; Traditional_Chinese
+[Strings.0004]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Traditional_Chinese"
+
+; Czech
+[Strings.0005]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Cestina"
+
+; Danish
+[Strings.0006]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Dansk"
+
+; German
+[Strings.0007]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Deutsch"
+
+; Greek
+[Strings.0008]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Greek"
+
+; English
+[Strings.0009]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "English"
+
+; Spanish
+[Strings.000a]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Espanol"
+
+; Finnish
+[Strings.000b]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Suomi"
+
+; French
+[Strings.000c]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Francais"
+
+; Hebrew
+[Strings.000d]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Hebrew"
+
+; Hungarian
+[Strings.000e]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Magyar"
+
+; Italian
+[Strings.0010]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Italiano"
+
+; Korean
+[Strings.0012]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Korean"
+
+; Dutch
+[Strings.0013]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Nederlands"
+
+; Norwegian
+[Strings.0014]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Norsk"
+
+; Polish
+[Strings.0015]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Polski"
+
+; Portuguese
+[Strings.0016]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Portugues"
+
+; Romanian
+[Strings.0018]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Romanian"
+
+; Russian
+[Strings.0019]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Russian"
+
+; Croatian
+[Strings.041a]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Hrvatski"
+
+; Serbian
+[Strings.001a]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Srpski"
+
+; Slovak
+[Strings.001b]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Slovak"
+
+; Swedish
+[Strings.001d]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Svenska"
+
+; Thai
+[Strings.001e]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Thai"
+
+; Turkish
+[Strings.001f]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Turkce"
+
+; Indonesian
+[Strings.0021]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Indonesian"
+
+; Ukrainian
+[Strings.0022]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Ukrainian"
+
+; Slovenian
+[Strings.0024]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Slovenian"
+
+; Estonian
+[Strings.0025]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Eesti"
+
+; Latvian
+[Strings.0026]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Latviski"
+
+; Lithuanian
+[Strings.0027]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Lietuviskai"
+
+; Vietnamese
+[Strings.002a]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Viet_Nam"
+
+; Kazakh
+[Strings.003f]
+Msft    ="Hewlett-Packard, Inc."
+Mfg     ="Hewlett-Packard, Inc."
+Location="Install Source"
+M1210nf.DeviceDesc="HP LaserJet Professional M1210 MFP Series"
+M1130.DeviceDesc="HP LaserJet Professional M1130 MFP Series"
+LANGDIR     = "Kazakh"

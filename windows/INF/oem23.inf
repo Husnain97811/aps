@@ -1,0 +1,102 @@
+;/*++
+;
+;Module Name:
+;
+;    HP1210FX.INF
+;
+;--*/
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+Provider="Hewlett-Packard, Inc."
+DriverVer=03/31/2010,6.0.6000.16386
+catalogfile.NTx86 = hptsfx32.CAT
+catalogfile.NTamd64 = hptsfx64.CAT
+
+
+; ================= Device section =====================
+
+[Manufacturer]
+%MFG%=HP,NTx86,NTamd64
+
+; For Win2K
+[HP]
+%USB\VID_03F0&PID_052A&MI_03.DeviceDesc%=HP1210FAX.Dev, USB\VID_03F0&PID_052A&MI_03
+%USB\VID_03F0&PID_0E2A&MI_03.DeviceDesc%=HP1210FAX.Dev, USB\VID_03F0&PID_0E2A&MI_03
+
+; For x86 XP and later
+[HP.NTx86]
+%USB\VID_03F0&PID_052A&MI_03.DeviceDesc%=HP1210FAX.Dev, USB\VID_03F0&PID_052A&MI_03
+%USB\VID_03F0&PID_0E2A&MI_03.DeviceDesc%=HP1210FAX.Dev, USB\VID_03F0&PID_0E2A&MI_03
+
+; For x64 XP and later
+[HP.NTamd64]
+%USB\VID_03F0&PID_052A&MI_03.DeviceDesc%=HP1210FAX.Dev, USB\VID_03F0&PID_052A&MI_03
+%USB\VID_03F0&PID_0E2A&MI_03.DeviceDesc%=HP1210FAX.Dev, USB\VID_03F0&PID_0E2A&MI_03
+
+
+[HP1210FAX.Dev.NT]
+CopyFiles=HP1210FAX.Files.Ext
+
+
+[HP1210FAX.Dev.NT.Services]
+Addservice = HP1210FAX, %SPSVCINST_ASSOCSERVICE%, HP1210FAX.AddService
+
+[HP1210FAX.AddService]
+DisplayName    = %HP1210FAX.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\HPM1210FAX.sys
+LoadOrderGroup = Base
+
+[HP1210FAX.Files.Ext]
+HPM1210FAX.sys
+
+[SourceDisksNames.x86]
+1=%Disk_Description%,,,x32
+
+[SourceDisksNames.amd64]
+1=%Disk_Description%,,,x64
+
+[SourceDisksFiles]
+HPM1210FAX.sys = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+;-------------- WDF Coinstaller installation
+
+[DestinationDirs]
+CoInstaller_CopyFiles = 11
+
+[HP1210FAX.Dev.NT.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[CoInstaller_CopyFiles]
+wdfcoinstaller01007.dll
+
+[SourceDisksFiles]
+wdfcoinstaller01007.dll=1 ; make sure the number matches with SourceDisksNames
+
+[CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "wdfcoinstaller01007.dll,WdfCoInstaller"
+
+[HP1210FAX.Dev.NT.Wdf]
+KmdfService = HP1210FAX, HP1210FAX_wdfsect
+[HP1210FAX_wdfsect]
+KmdfLibraryVersion = 1.7
+
+;---------------------------------------------------------------;
+
+[Strings]
+MFG="HP"
+MfgName="HP1210FAX"
+Disk_Description="HP1210FAX Installation Disk"
+USB\VID_03F0&PID_052A&MI_03.DeviceDesc="HP1210FAX"
+USB\VID_03F0&PID_0E2A&MI_03.DeviceDesc="HP1210FAX"
+HP1210FAX.SvcDesc="HP1210MFP FAX"
+SPSVCINST_ASSOCSERVICE= 0x00000002

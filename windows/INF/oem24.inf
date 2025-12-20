@@ -1,0 +1,488 @@
+;
+; Copyright(C) 2008 Marvell International Ltd.
+;
+; All rights reserved.
+;
+; HPM1210.INF
+;  HP LaserJet Professional M1210 SD driver
+;
+
+[Version]
+Signature		= "$Windows NT$"
+Provider		= Marvell
+ClassGUID		= {4D36E979-E325-11CE-BFC1-08002BE10318}
+Class			= Printer
+DriverVer=03/31/2010,1.0.1.19178
+catalogfile.NTx86 = hpts32.CAT
+catalogfile.NTamd64 = hpts64.CAT
+
+[Manufacturer]
+%MFG%		= HP,NTx86,NTamd64
+
+[HP]
+"HP LaserJet Professional M1132 MFP" = HPM1130, USBPRINT\Hewlett-PackardHP_La037F, Hewlett-PackardHP_La037F
+"HP LaserJet Professional M1134 MFP" = HPM1130, USBPRINT\Hewlett-PackardHP_La03F7, Hewlett-PackardHP_La03F7
+"HP LaserJet Professional M1136 MFP" = HPM1130, USBPRINT\Hewlett-PackardHP_LaC38E, Hewlett-PackardHP_LaC38E
+"HP LaserJet Professional M1137 MFP" = HPM1130, USBPRINT\Hewlett-PackardHP_La03B3, Hewlett-PackardHP_La03B3
+"HP LaserJet Professional M1138 MFP" = HPM1130, USBPRINT\Hewlett-PackardHP_La02E7, Hewlett-PackardHP_La02E7
+"HP LaserJet Professional M1139 MFP" = HPM1130, USBPRINT\Hewlett-PackardHP_LaC2DA, Hewlett-PackardHP_LaC2DA
+
+"HP LaserJet Professional M1212nf MFP" = HPM1210, USBPRINT\Hewlett-PackardHP_La4063, Hewlett-PackardHP_La4063
+"HP LaserJet Professional M1213nf MFP" = HPM1210, USBPRINT\Hewlett-PackardHP_LaE272, Hewlett-PackardHP_LaE272
+"HP LaserJet Professional M1214nfh MFP"= HPM1210, USBPRINT\Hewlett-PackardHP_La5E20, Hewlett-PackardHP_La5E20
+"HP LaserJet Professional M1216nfh MFP"= HPM1210, USBPRINT\Hewlett-PackardHP_La8481, Hewlett-PackardHP_La8481
+"HP LaserJet Professional M1217nfw MFP"= HPM1210, USBPRINT\Hewlett-PackardHP_La2875, Hewlett-PackardHP_La2875
+"HP LaserJet Professional M1219nf MFP" = HPM1210, USBPRINT\Hewlett-PackardHP_LaE2D8, Hewlett-PackardHP_LaE2D8
+
+
+[HP.NTx86]
+"HP LaserJet Professional M1132 MFP" = HPM1130, USBPRINT\Hewlett-PackardHP_La037F, Hewlett-PackardHP_La037F
+"HP LaserJet Professional M1134 MFP" = HPM1130, USBPRINT\Hewlett-PackardHP_La03F7, Hewlett-PackardHP_La03F7
+"HP LaserJet Professional M1136 MFP" = HPM1130, USBPRINT\Hewlett-PackardHP_LaC38E, Hewlett-PackardHP_LaC38E
+"HP LaserJet Professional M1137 MFP" = HPM1130, USBPRINT\Hewlett-PackardHP_La03B3, Hewlett-PackardHP_La03B3
+"HP LaserJet Professional M1138 MFP" = HPM1130, USBPRINT\Hewlett-PackardHP_La02E7, Hewlett-PackardHP_La02E7
+"HP LaserJet Professional M1139 MFP" = HPM1130, USBPRINT\Hewlett-PackardHP_LaC2DA, Hewlett-PackardHP_LaC2DA
+
+"HP LaserJet Professional M1212nf MFP" = HPM1210, USBPRINT\Hewlett-PackardHP_La4063, Hewlett-PackardHP_La4063
+"HP LaserJet Professional M1213nf MFP" = HPM1210, USBPRINT\Hewlett-PackardHP_LaE272, Hewlett-PackardHP_LaE272
+"HP LaserJet Professional M1214nfh MFP"= HPM1210, USBPRINT\Hewlett-PackardHP_La5E20, Hewlett-PackardHP_La5E20
+"HP LaserJet Professional M1216nfh MFP"= HPM1210, USBPRINT\Hewlett-PackardHP_La8481, Hewlett-PackardHP_La8481
+"HP LaserJet Professional M1217nfw MFP"= HPM1210, USBPRINT\Hewlett-PackardHP_La2875, Hewlett-PackardHP_La2875
+"HP LaserJet Professional M1219nf MFP" = HPM1210, USBPRINT\Hewlett-PackardHP_LaE2D8, Hewlett-PackardHP_LaE2D8
+
+
+[HP.NTamd64]
+"HP LaserJet Professional M1132 MFP" = HPM1130, USBPRINT\Hewlett-PackardHP_La037F, Hewlett-PackardHP_La037F
+"HP LaserJet Professional M1134 MFP" = HPM1130, USBPRINT\Hewlett-PackardHP_La03F7, Hewlett-PackardHP_La03F7
+"HP LaserJet Professional M1136 MFP" = HPM1130, USBPRINT\Hewlett-PackardHP_LaC38E, Hewlett-PackardHP_LaC38E
+"HP LaserJet Professional M1137 MFP" = HPM1130, USBPRINT\Hewlett-PackardHP_La03B3, Hewlett-PackardHP_La03B3
+"HP LaserJet Professional M1138 MFP" = HPM1130, USBPRINT\Hewlett-PackardHP_La02E7, Hewlett-PackardHP_La02E7
+"HP LaserJet Professional M1139 MFP" = HPM1130, USBPRINT\Hewlett-PackardHP_LaC2DA, Hewlett-PackardHP_LaC2DA
+
+"HP LaserJet Professional M1212nf MFP" = HPM1210, USBPRINT\Hewlett-PackardHP_La4063, Hewlett-PackardHP_La4063
+"HP LaserJet Professional M1213nf MFP" = HPM1210, USBPRINT\Hewlett-PackardHP_LaE272, Hewlett-PackardHP_LaE272
+"HP LaserJet Professional M1214nfh MFP"= HPM1210, USBPRINT\Hewlett-PackardHP_La5E20, Hewlett-PackardHP_La5E20
+"HP LaserJet Professional M1216nfh MFP"= HPM1210, USBPRINT\Hewlett-PackardHP_La8481, Hewlett-PackardHP_La8481
+"HP LaserJet Professional M1217nfw MFP"= HPM1210, USBPRINT\Hewlett-PackardHP_La2875, Hewlett-PackardHP_La2875
+"HP LaserJet Professional M1219nf MFP" = HPM1210, USBPRINT\Hewlett-PackardHP_LaE2D8, Hewlett-PackardHP_LaE2D8
+
+
+[HPM1130.NTx86]
+DriverVer=03/31/2010,1.0.1.19178
+CopyFiles	= DRV,SYSFILES,PRTPROCS,PRGFILES
+DataSection	= HPM1130_DATA_NT
+
+[HPM1210.NTx86]
+DriverVer=03/31/2010,1.0.1.19178
+CopyFiles	= DRV,SYSFILES,PRTPROCS,PRGFILES
+DataSection	= HPM1210_DATA_NT
+
+[HPM1130.NTamd64]
+DriverVer=03/31/2010,1.0.1.19178
+CopyFiles	= DRV,SYSFILES,PRTPROCS,PRGFILES
+DataSection	= HPM1130_DATA_NT
+
+[HPM1210.NTamd64]
+DriverVer=03/31/2010,1.0.1.19178
+CopyFiles	= DRV,SYSFILES,PRTPROCS,PRGFILES
+DataSection	= HPM1210_DATA_NT
+
+[HPM1130_DATA_NT]
+DriverFile	= hpm1210sd.dll
+ConfigFile	= hpm1210su.dll
+HelpFile	= hpm1210sd.chm
+DataFile	= hpm1130sd.sdd
+LanguageMonitor	= HPM1210LM,HPM1210LM.DLL
+DefaultDataType = RAW
+PrintProcessor	= HPM1210PrintProc,HPM1210PP.dll
+
+[HPM1210_DATA_NT]
+DriverFile	= hpm1210sd.dll
+ConfigFile	= hpm1210su.dll
+HelpFile	= hpm1210sd.chm
+DataFile	= hpm1210sd.sdd
+LanguageMonitor	= HPM1210LM,HPM1210LM.DLL
+DefaultDataType = RAW
+PrintProcessor	= HPM1210PrintProc,HPM1210PP.dll
+
+[DRV]
+hpm1210sd.dll
+hpm1210su.dll
+hpm1210su.ent
+hpm1210su.ver
+hpm1130sd.sdd
+hpm1210sd.sdd
+hpm1210sd.chm
+HPM1210PP.dll
+HPM1210GC.DLL
+M1217TestPage.prn
+M1210TestPage.prn
+M1130TestPage.prn
+
+[SYSFILES]
+HPM1210LM.DLL
+HPM1210SMs.dll
+HPM1210SM.exe
+mvhlewsi.DLL
+
+[PRTPROCS]
+HPM1210PP.dll
+
+[PRGFILES]
+AC_RunActiveContent.js
+P1210Light.HTM
+P1210DEF.CSS
+P1210OS.HTM
+P1210SIG.GIF
+P1210SMT.HTM
+P1210SMT.SWF
+CPS.SWF
+CPS.XML
+
+[SourceDisksNames.x86]
+1 = %Location%,,,%LANGDIR%\PrntDriver
+2 = %Location%,drv32.cab,,
+3 = %Location%,,,%LANGDIR%\PrntDriver
+
+[SourceDisksNames.amd64]
+1 = %Location%,,,%LANGDIR%\PrntDriver
+2 = %Location%,drv64.cab,,
+3 = %Location%,,,%LANGDIR%\PrntDriver\x64
+
+[SourceDisksFiles]
+HPM1210SM.EXE		= 2
+mvhlewsi.DLL        = 2
+hpm1210sd.dll		= 2
+hpm1210su.dll		= 2
+HPM1210LM.DLL		= 2
+HPM1210PP.DLL		= 2
+HPM1210GC.DLL       = 2
+hpm1210su.ver		= 2
+HPM1210SMs.dll      = 3
+hpm1210su.ent		= 1
+hpm1130sd.sdd		= 1
+hpm1210sd.sdd		= 1
+hpm1210sd.chm		= 1
+
+P1210Light.HTM		= 2
+P1210DEF.CSS		= 2
+P1210OS.HTM			= 1
+P1210SIG.GIF		= 2
+P1210SMT.HTM		= 2
+P1210SMT.SWF		= 2
+CPS.SWF				= 2
+CPS.XML		        = 2
+AC_RunActiveContent.js = 2
+M1210TestPage.prn   =1
+M1130TestPage.prn   =1
+M1217TestPage.prn   =1
+
+[DestinationDirs]
+DefaultDestDir	= 66000
+DRV		= 66000
+SYSFILES	= 66002
+PRTPROCS	= 66001
+PRGFILES	= 16422,HP\HP LaserJet M1210 MFP Series
+
+[Strings]
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+LANGDIR  = "ENGLISH"
+
+; Arabic
+[Strings.0001]
+LANGDIR     	= "Arabic"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Bulgarian
+[Strings.0002]
+LANGDIR     	= "Bulgarian"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Catalan
+[Strings.0003]
+LANGDIR     	= "Catalan"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Chinese-Simplified
+[Strings.0804]
+LANGDIR     	= "Simplified_Chinese"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Traditional_Chinese
+[Strings.0004]
+LANGDIR     	= "Traditional_Chinese"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Czech
+[Strings.0005]
+LANGDIR     	= "Cestina"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Danish
+[Strings.0006]
+LANGDIR     	= "Dansk"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; German
+[Strings.0007]
+LANGDIR     	= "Deutsch"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Greek
+[Strings.0008]
+LANGDIR     	= "Greek"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; English
+[Strings.0009]
+LANGDIR     	= "English"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Spanish
+[Strings.000a]
+LANGDIR     	= "Espanol"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Finnish
+[Strings.000b]
+LANGDIR     	= "Suomi"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; French
+[Strings.000c]
+LANGDIR     	= "Francais"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Hebrew
+[Strings.000d]
+LANGDIR     	= "Hebrew"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Hungarian
+[Strings.000e]
+LANGDIR     	= "Magyar"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Italian
+[Strings.0010]
+LANGDIR     	= "Italiano"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Korean
+[Strings.0012]
+LANGDIR     	= "Korean"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Dutch
+[Strings.0013]
+LANGDIR     	= "Nederlands"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Norwegian
+[Strings.0014]
+LANGDIR     	= "Norsk"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Polish
+[Strings.0015]
+LANGDIR     	= "Polski"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Portuguese
+[Strings.0016]
+LANGDIR     	= "Portugues"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Romanian
+[Strings.0018]
+LANGDIR     	= "Romanian"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Russian
+[Strings.0019]
+LANGDIR     	= "Russian"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Croatian
+[Strings.041a]
+LANGDIR     	= "Hrvatski"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Serbian
+[Strings.001a]
+LANGDIR     	= "Srpski"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Slovak
+[Strings.001b]
+LANGDIR     	= "Slovak"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Swedish
+[Strings.001d]
+LANGDIR     	= "Svenska"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Thai
+[Strings.001e]
+LANGDIR     	= "Thai"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Turkish
+[Strings.001f]
+LANGDIR     	= "Turkce"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Indonesian
+[Strings.0021]
+LANGDIR     	= "Indonesian"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Ukrainian
+[Strings.0022]
+LANGDIR     	= "Ukrainian"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Slovenian
+[Strings.0024]
+LANGDIR     	= "Slovenian"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Estonian
+[Strings.0025]
+LANGDIR     	= "Eesti"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Latvian
+[Strings.0026]
+LANGDIR     	= "Latviski"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Lithuanian
+[Strings.0027]
+LANGDIR     	= "Lietuviskai"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Vietnamese
+[Strings.002a]
+LANGDIR     	= "Viet_Nam"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"
+
+; Kazakh
+[Strings.003f]
+LANGDIR     	= "Kazakh"
+Location	= "Driver Location"
+MS		= "Microsoft"
+Microsoft	= "Microsoft"
+MFG		= "HP"

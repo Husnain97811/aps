@@ -1,0 +1,317 @@
+; Copyright (c) Realtek Semiconductor Corp. All rights reserved.
+
+[Version]
+Signature = "$Windows NT$"
+Class = Extension
+ClassGuid = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider=%RTS%
+ExtensionId = {A58BD39E-56D3-453F-A8B7-1E83725A8B54}
+CatalogFile = RtsCrExt64.cat
+DriverVer=08/07/2018,10.0.17134.1
+
+[Manufacturer]
+%VENDOR%=Vendor, NTamd64
+
+[Vendor.NTamd64]
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&CC_FF00
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&CC_FF00
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5249&CC_FF00
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_524A&CC_FF00
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5250
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_525A&CC_FF00
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5287&CC_FF00
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5260&CC_FF00
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5289&CC_FF00
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5286&CC_FF00
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5229&CC_FF00
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5209&CC_FF00
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5208&CC_FF00
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5288&CC_FF00
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5249&SUBSYS_2255103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5249&SUBSYS_2253103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_2216103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_2270103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_2009103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_2271103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_22FB103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_22DA103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_2216103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_225A103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_221C103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_221D103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_221B103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_2246103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_2247103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_2248103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_2249103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_1940103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_1947103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_1946103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_1947103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_1944103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_1947103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_1993103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_1994103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_2101103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_2102103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_1992103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_198F103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_1991103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5249&SUBSYS_190A103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5249&SUBSYS_1909103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_21B3103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5227&SUBSYS_213E103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_525A&SUBSYS_80D6103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_525A&SUBSYS_80D5103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_525A&SUBSYS_80D4103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_8079103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_807C103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_807E103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_8084103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_80FD103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_8125103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_80FE103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_8102103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_8101103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_8100103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_80FF103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_80EF103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_80F3103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_525A&SUBSYS_8270103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_525A&SUBSYS_8275103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_525A&SUBSYS_826B103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_824C103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_828C103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_8292103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_827D103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_8236103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_8238103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_82AA103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_82AB103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_823A103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_822C103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_8301103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_822E103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_8231103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_8234103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_823C103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_823E103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_828B103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_82CA103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_8377103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_8379103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_837B103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_837D103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_837F103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_83FD103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_8471103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_836E103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_8370103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_522A&SUBSYS_8418103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_525A&SUBSYS_842D103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_525A&SUBSYS_842A103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_525A&SUBSYS_8427103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_525A&SUBSYS_844F103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_525A&SUBSYS_84E9103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5229&SUBSYS_2234103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5229&SUBSYS_2236103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5229&SUBSYS_2235103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5229&SUBSYS_2236103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5229&SUBSYS_1948103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5229&SUBSYS_194D103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5229&SUBSYS_194B103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5229&SUBSYS_194D103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5229&SUBSYS_1949103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5229&SUBSYS_194D103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5229&SUBSYS_1950103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5229&SUBSYS_1952103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5229&SUBSYS_194E103C
+%RealtekCRExt%=RealtekCRExt.Inst, PCI\VEN_10EC&DEV_5229&SUBSYS_1952103C
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0139
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0129
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0140
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0105
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0125
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0119
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0103
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0104
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0106
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0107
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0108
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0111
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0113
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0115
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0116
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0117
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0118
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0120
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0121
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0136
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0138
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0150
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0151
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0152
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0153
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0155
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0156
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0157
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0158
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0159
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0163
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0161
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0168
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0166
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0167 
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0169 
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0171 
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0176 
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0177 
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0178
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0181
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0182
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0084
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0184
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0185
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0186
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0187
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0188
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0301
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0302
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0303
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0305
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0306
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0307
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0308
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0309
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0311
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0312
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0314
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0315
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0316
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0317
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0318
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0319
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0321
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0322
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0326
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0327
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0328
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0329
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0001
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0009
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0011
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0029
+%RealtekCRExt%=RealtekCRExt.Inst, USB\VID_0BDA&PID_0336
+
+[SourceDisksFiles]
+SDRTCPRM.dll = 1
+
+[SourceDisksNames]
+1 = %DiskDesc%
+
+[DestinationDirs]
+RealtekCRComponent_CopyFiles = 10,SysWOW64\sda
+
+[RealtekCRExt.Inst.NT]
+CopyFiles = RealtekCRComponent_CopyFiles
+AddReg = SetNonRemovableAddReg
+
+[RealtekCRComponent_CopyFiles]
+SDRTCPRM.dll
+
+[SetNonRemovableAddReg]
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\PCI#VEN_10EC&DEV_5227&REV_01\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\PCI#VEN_10EC&DEV_522A&REV_01\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\PCI#VEN_10EC&DEV_5249&REV_01\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\PCI#VEN_10EC&DEV_524A&REV_01\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\PCI#VEN_10EC&DEV_5250&REV_01\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\PCI#VEN_10EC&DEV_525A&REV_01\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\PCI#VEN_10EC&DEV_5287&REV_01\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\PCI#VEN_10EC&DEV_5260&REV_01\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\PCI#VEN_10EC&DEV_5289&REV_01\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\PCI#VEN_10EC&DEV_5286&REV_01\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\PCI#VEN_10EC&DEV_5229&REV_01\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\PCI#VEN_10EC&DEV_5209&REV_01\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\PCI#VEN_10EC&DEV_5208&REV_01\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\PCI#VEN_10EC&DEV_5288&REV_01\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0139\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0129\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0140\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0105\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0125\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0119\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0103\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0104\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0106\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0107\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0108\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0111\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0113\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0115\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0116\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0117\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0118\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0120\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0121\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0136\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0138\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0150\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0151\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0152\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0153\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0155\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0156\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0157\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0158\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0159\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0163\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0161\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0168\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0166\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0167\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0169\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0171\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0176\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0177\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0178\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0181\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0182\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0084\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0184\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0185\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0186\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0187\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0188\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0301\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0302\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0303\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0305\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0306\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0307\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0308\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0309\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0311\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0312\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0314\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0315\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0316\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0317\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0318\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0319\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0321\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0322\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0326\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0327\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0328\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0329\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0001\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0009\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0011\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0029\LocationPaths\*, Removable, 0x00010001, 0x00
+HKLM, SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_0BDA&PID_0336\LocationPaths\*, Removable, 0x00010001, 0x00
+
+[Strings]
+RTS 	= "Realtek Semiconductor Corp."
+VENDOR         = "Realtek Semiconductor Corp."
+RealtekCRExt   = "Realtek PCIE CardReader Extension Component"
+DiskDesc       = "Realtek PCIE Card Reader Source Disk"
