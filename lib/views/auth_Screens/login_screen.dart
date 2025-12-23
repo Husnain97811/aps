@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -260,6 +261,44 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
               ),
+            ),
+          ),
+        ),
+      ),
+      floatingActionButton: Container(
+        child: FloatingActionButton.extended(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          onPressed: () async {
+            const url = 'https://www.inoverstudio.com/';
+            if (await canLaunchUrl(Uri.parse(url))) {
+              await launchUrl(
+                Uri.parse(url),
+                mode: LaunchMode.externalApplication,
+              );
+            }
+          },
+          label: ShaderMask(
+            shaderCallback: (Rect bounds) {
+              return LinearGradient(
+                colors: [
+                  Colors.blueAccent,
+                  Color.fromRGBO(98, 34, 148, 1),
+                  Color.fromRGBO(98, 34, 148, 1),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ).createShader(bounds);
+            },
+            child: Text(
+              '@ Inover Studio',
+              style: GoogleFonts.akayaKanadaka(
+                fontSize: 15.sp,
+                fontWeight: FontWeight.bold,
+                color: Colors.white, // This will be masked by the shader
+              ),
+              overflow: TextOverflow.visible,
+              softWrap: true,
             ),
           ),
         ),
