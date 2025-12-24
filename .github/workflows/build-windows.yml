@@ -21,18 +21,139 @@ jobs:
         cache-key: flutter-windows-${{ runner.os }}-${{ hashFiles('**/pubspec.lock') }}
         
     - name: Install dependencies
-      run: flutter pub get
-      
+      run: |
+        flutter pub get
+        flutter config --enable-windows-desktop
+        
     - name: Build Windows EXE
       run: |
         echo "Building Windows executable..."
-        flutter build windows --release
+        # Clean to avoid stale builds
+        flutter clean
+        # Build with verbose to see asset copying
+        flutter build windows --release --verbose 2>&1 | Select-String -Pattern "Copying.*asset|asset.*copy|flutter_assets" | Select-Object -First 10
         echo "✅ Build completed!"
+      
+    # CRITICAL: Find and verify assets were copied
+    - name: Verify Asset Bundling
+      run: |
+        echo "=== Checking where assets are ==="
+        
+        # Try both possible paths
+        $possiblePaths = @(
+          "build\windows\runner\Release\data\flutter_assets",
+          "build\windows\x64\runner\Release\data\flutter_assets"
+        )
+        
+        $foundPath = $null
+        foreach ($path in $possiblePaths) {
+          if (Test-Path -Path $path) {
+            $foundPath = $path
+            break
+          }
+        }
+        
+        if ($foundPath) {
+          echo "✅ Assets found at: $foundPath"
+          echo "=== Asset contents ==="
+          Get-ChildItem -Path $foundPath -Recurse | Select-Object Name, Length
+          
+          # Check for specific files
+          $requiredFiles = @("logo_reliable.png", "apld_logo.png")
+          foreach ($file in $requiredFiles) {
+            $fullPath = Join-Path $foundPath $file
+            if (Test-Path $fullPath) {
+              $size = (Get-Item $fullPath).Length
+              echo "✅ $file found: $size bytes"
+            } else {
+              echo "❌ $file NOT found in build!"
+            }
+          }
+          
+          # Set environment variable for upload step
+          echo "ASSETS_PATH=$foundPath" >> $env:GITHUB_ENV
+        } else {
+          echo "❌ No flutter_assets folder found!"
+          echo "Looking for any asset directories..."
+          Get-ChildItem -Path "build\windows" -Recurse -Directory -Filter "*asset*"
+        }
+      
+    # If assets aren't found, copy them manually
+    - name: Copy Assets Manually (if needed)
+      if: env.ASSETS_PATH == ''
+      run: |
+        echo "=== Manually copying assets ==="
+        
+        # Determine Release directory
+        $releaseDir = "build\windows\runner\Release"
+        if (-not (Test-Path $releaseDir)) {
+          $releaseDir = "build\windows\x64\runner\Release"
+        }
+        
+        $flutterAssetsDir = "$releaseDir\data\flutter_assets"
+        New-Item -ItemType Directory -Path $flutterAssetsDir -Force
+        
+        # Copy all assets
+        Copy-Item -Path "assets\*" -Destination $flutterAssetsDir -Recurse -Force
+        
+        echo "✅ Assets copied to: $flutterAssetsDir"
+        Get-ChildItem -Path $flutterAssetsDir -Recurse | Select-Object Name, Length
+        
+        # Set path for upload
+        echo "ASSETS_PATH=$flutterAssetsDir" >> $env:GITHUB_ENV
       
     - name: Upload Executable
       uses: actions/upload-artifact@v4
       with:
-        name: RMN-Accounts-Windows
-        path: build/windows/x64/runner/Release/
-        if-no-files-found: error
+        name: APS-Complete-Package
+        path: |
+          build/windows/runner/Release/
+          build/windows/x64/runner/Release/
+        if-no-files-found: warn
+        retention-days: 7
+      
+    - name: Create Portable ZIP with Assets
+      run: |
+        echo "=== Creating portable package ==="
+        
+        # Find the actual build directory
+        if (Test-Path "build\windows\runner\Release\*.exe") {
+          $sourceDir = "build\windows\runner\Release"
+        } elseif (Test-Path "build\windows\x64\runner\Release\*.exe") {
+          $sourceDir = "build\windows\x64\runner\Release"
+        } else {
+          echo "❌ No .exe found!"
+          exit 1
+        }
+        
+        $appName = "APS"
+        $version = "1.0.0"
+        $zipName = "$appName-v$version-portable"
+        
+        # Create temp directory
+        New-Item -ItemType Directory -Path $zipName -Force
+        
+        # Copy everything from build
+        Copy-Item -Path "$sourceDir\*" -Destination $zipName -Recurse -Force
+        
+        # Ensure assets are present
+        if (-not (Test-Path "$zipName\data\flutter_assets")) {
+          echo "⚠️ Assets missing, adding them..."
+          New-Item -ItemType Directory -Path "$zipName\data\flutter_assets" -Force
+          Copy-Item -Path "assets\*" -Destination "$zipName\data\flutter_assets" -Recurse -Force
+        }
+        
+        # Create ZIP
+        Compress-Archive -Path "$zipName\*" -DestinationPath "$zipName.zip" -Force
+        
+        echo "✅ Created: $zipName.zip"
+        
+        # Upload ZIP separately
+        echo "ASSETS_ZIP=$zipName.zip" >> $env:GITHUB_ENV
+      
+    - name: Upload Portable Package
+      uses: actions/upload-artifact@v4
+      with:
+        name: APS-Portable
+        path: ${{ env.ASSETS_ZIP }}
         retention-days: 7
