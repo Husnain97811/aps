@@ -99,7 +99,7 @@ msix_config:
   publisher_display_name: UH Tech Solution
   publisher: CN=YourCompany
   identity_name: com.UHTechSolution.APS
-  msix_version: 2.1.1.0
+  msix_version: 3.0.0.0
   logo_path: assets/images/officiallogo.png
   certificate_path: C:\APLD_Cert.pfx
   certificate_password: uhtechaps211
@@ -120,6 +120,11 @@ flutter:
     - assets/forms/
     - assets/images/
     - assets/fonts/
+
+
+  # Windows-specific build settings
+windows:
+    generate: true
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
